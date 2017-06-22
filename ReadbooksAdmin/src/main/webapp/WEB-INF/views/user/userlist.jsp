@@ -11,9 +11,7 @@
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	
-</script><link rel="stylesheet" href="/resources/css/nav.css">
-<link rel="stylesheet" href="/resources/css/common.css">
-<script type="text/javascript" src="/resources/js/nav.js"></script>
+</script>
 <style type="text/css">
 #userform {
 	margin: 50px;
@@ -21,41 +19,8 @@
 </style>
 </head>
 <body>
-	<div id="aduser"><nav class='sidebar sidebar-menu-collapsed'>
-		<a href='#' id='justify-icon'> <span
-			class='glyphicon glyphicon-align-justify'></span>
-		</a>
-		<ul>
-			<li class='active'><a class='expandable' href=''
-				title='Dashboard'> <span
-					class='glyphicon glyphicon-home collapsed-element'></span> <span
-					class='expanded-element'>홈</span>
-			</a></li>
-			<li><a class='expandable' href='/bookinsert.do' title='BookInsert'> <span
-					class='glyphicon glyphicon-wrench collapsed-element'></span> <span
-					class='expanded-element'>상품 등록</span>
-			</a></li>
-			<li><a class='expandable' href='/booklist.do' title='Account'> <span
-					class='glyphicon glyphicon-user collapsed-element'></span> <span
-					class='expanded-element'>상품 조회</span>
-			</a></li>
-			<li><a class='expandable' href='/orderlist.do' title='OrderList'> <span
-					class='glyphicon glyphicon-cog collapsed-element'></span> <span
-					class='expanded-element'>주문 조회</span>
-			</a></li>
-			<li><a class='expandable' href='/userlist.do' title='UserList'> <span
-					class='glyphicon glyphicon-user collapsed-element'></span> <span
-					class='expanded-element'>회원 조회</span>
-			</a></li>
-			<li><a class='expandable' href='/mail.do' title='Email'> <span
-					class='glyphicon glyphicon-user collapsed-element'></span> <span
-					class='expanded-element'>메일 작성</span>
-			</a></li>
-		</ul>
-		<a href='/login.do' id='logout-icon' title='Logout'> <span
-			class='glyphicon glyphicon-off'></span>
-		</a>
-	</nav>
+	<div id="aduser">
+	<jsp:include page="../nav.jsp"></jsp:include>
 		<div id="userform">
 
 			<!--for demo wrap-->
@@ -69,7 +34,7 @@
 							<th>이름</th>
 							<th>이메일</th>
 							<th>전화번호</th>
-							<th>비밀번호찾기 질문</th>
+<!-- 							<th>비밀번호찾기 질문</th> -->
 							<th>등록일</th>
 							<th>포인트</th>
 							<th>이용약관동의</th>
@@ -95,7 +60,7 @@
 								<td>${userlist.user_name }</td>
 								<td>${userlist.user_email }</td>
 								<td>${userlist.user_phonenumber }</td>
-								<td>${userlist.user_pwquestion }</td>
+<%-- 								<td>${userlist.user_pwquestion }</td> --%>
 								<td>${userlist.user_registerdate }</td>
 								<td>${userlist.user_point }</td>
 								<td>${userlist.user_serviceagreement }</td>

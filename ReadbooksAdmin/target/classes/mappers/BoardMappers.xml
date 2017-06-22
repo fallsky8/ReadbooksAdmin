@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.readbooks.boarddao.FAQDAO">
+	<insert id="faqinsert" parameterType="faq">
+		insert into
+		tbl_faqboard(FAQBOARD_NUMBER,ADMIN_ID,FAQBOARD_TYPE,FAQBOARD_QUESTION,FAQBOARD_ANSWER,FAQBOARD_REGISTERDATE)
+		values(FAQ_NUMBER_SEQ.nextval,#{admin_id},#{faqboard_type},#{faqboard_question},#{faqboard_answer},sysdate)
+	</insert>
+
+	<select id="faqlist" parameterType="faq" resultType="faq">
+		select
+		*
+		from tbl_faqboard
+	</select>
+<!-- 	<select id="bookdetail" parameterType="book" resultType="book"> -->
+<!-- 		select -->
+<!-- 		* -->
+<!-- 		from tbl_book where book_number = #{book_number} -->
+<!-- 	</select> -->
+<!-- 	<update id="bookupdate" parameterType="book"> -->
+<!-- 		update -->
+<!-- 		tbl_book -->
+<!-- 		set -->
+<!-- 		BOOK_NAME=#{book_name}, -->
+<!-- 		BOOK_QUANTITY=#{book_quantity},BOOK_PRICE=#{book_price},BOOK_COUNTRY=#{book_country},BOOK_STORY=#{book_story},BOOK_WRITER=#{book_writer},BOOK_PUBLISHER=#{book_publisher},BOOK_BOOKINFO=#{book_bookinfo},BOOK_WRITERINFO=#{book_writerinfo},BOOK_PUBLISHERREVIEW=#{book_publisherreview},BOOK_IMAGE=#{book_image},BOOK_DISCOUNT=#{book_discount},BOOK_STATUS=#{book_status},BOOK_OPENING=#{book_opening} -->
+<!-- 		where BOOK_NUMBER=#{book_number} -->
+
+
+<!-- 	</update> -->
+</mapper>

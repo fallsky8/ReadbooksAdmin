@@ -15,9 +15,6 @@
 <script src='<c:url value="/jquery/jquery-1.11.3.min.js" />'></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src='<c:url value="/js/bootstrap.min.js"  />'></script>
-<link rel="stylesheet" href="/resources/css/nav.css">
-<link rel="stylesheet" href="/resources/css/common.css">
-<script type="text/javascript" src="/resources/js/nav.js"></script>
 <style type="text/css">
 #mailform {
 	margin: 50px;
@@ -28,42 +25,7 @@
 </head>
 <body>
 <div>
-	<nav class='sidebar sidebar-menu-collapsed'>
-		<a href='' id='justify-icon'> <span
-			class='glyphicon glyphicon-align-justify'></span>
-		</a>
-		<ul>
-			<li class='active'><a class='expandable' href=''
-				title='Dashboard'> <span
-					class='glyphicon glyphicon-home collapsed-element'></span> <span
-					class='expanded-element'>홈</span>
-			</a></li>
-			<li><a class='expandable' href='/bookinsert.do'
-				title='BookInsert'> <span
-					class='glyphicon glyphicon-wrench collapsed-element'></span> <span
-					class='expanded-element'>상품 등록</span>
-			</a></li>
-			<li><a class='expandable' href='/booklist.do' title='Account'>
-					<span class='glyphicon glyphicon-user collapsed-element'></span> <span
-					class='expanded-element'>상품 조회</span>
-			</a></li>
-			<li><a class='expandable' href='/orderlist.do' title='OrderList'>
-					<span class='glyphicon glyphicon-cog collapsed-element'></span> <span
-					class='expanded-element'>주문 조회</span>
-			</a></li>
-			<li><a class='expandable' href='/userlist.do' title='UserList'>
-					<span class='glyphicon glyphicon-user collapsed-element'></span> <span
-					class='expanded-element'>회원 조회</span>
-			</a></li>
-			<li><a class='expandable' href='/mail.do' title='Email'> <span
-					class='glyphicon glyphicon-user collapsed-element'></span> <span
-					class='expanded-element'>메일 작성</span>
-			</a></li>
-		</ul>
-		<a href='/login.do' id='logout-icon' title='Logout'> <span
-			class='glyphicon glyphicon-off'></span>
-		</a>
-	</nav>
+	<jsp:include page="../nav.jsp"></jsp:include>
 	<div class="tbl-header">
 	<h1>메일 보내기</h1>
 		<form id="mailform"

@@ -90,7 +90,7 @@ public class UserVO {
 	}
 
 	public void setUser_registerdate(String user_registerdate) {
-		this.user_registerdate = user_registerdate;
+		this.user_registerdate = user_registerdate.substring(0,10);
 	}
 
 	public int getUser_point() {
@@ -138,7 +138,7 @@ public class UserVO {
 	}
 
 	public void setUser_outdate(String user_outdate) {
-		this.user_outdate = user_outdate;
+		this.user_outdate = user_outdate.substring(0,10);
 	}
 	
 

@@ -8,5 +8,6 @@
 		<typeAlias type="com.readbooks.adminvo.AdminVO" alias="adminvo" />
 		<typeAlias type="com.readbooks.ordervo.OrderVO" alias="order" />
 		<typeAlias type="com.readbooks.uservo.UserVO" alias="user" />
+		<typeAlias type="com.readbooks.boardvo.FAQVO" alias="faq" />
 	</typeAliases>
 </configuration>

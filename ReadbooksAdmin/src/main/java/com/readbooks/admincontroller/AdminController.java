@@ -29,8 +29,8 @@ public class AdminController {
 
 	@RequestMapping(value = "/logout")
 	public String logout(HttpSession session) {
-
-		return "admin/logout";
+		session.invalidate();
+		return "home";
 	}
 
 	@RequestMapping(value = "/checklogin", method = RequestMethod.POST)
@@ -38,7 +38,7 @@ public class AdminController {
 		session.setAttribute("CSRF_TOKEN", UUID.randomUUID().toString());
 		int result = 0;
 		String url = "";
-		System.out.println(admin.getAdmin_id());
+//		System.out.println(admin.getAdmin_id());
 		result = adminService.login(admin);
 		session.setAttribute("admin_id", admin.getAdmin_id());
 		if (result == 1) {

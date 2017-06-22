@@ -6,7 +6,10 @@ import com.readbooks.bookvo.BookVO;
 
 public interface BookService {
 
-	public int bookInsert(BookVO BookVO);
+	public int bookInsert(BookVO bookVO);
 
-	public List<BookVO> bookSelect(BookVO BookVO);
+	public List<BookVO> bookSelect(BookVO bookVO);
+	public BookVO bookDetailSelect(BookVO bookVO);
+
+	public int bookUpdate(BookVO bookVO);
 }

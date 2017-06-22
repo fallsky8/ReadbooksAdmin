@@ -1,5 +1,7 @@
 package com.readbooks.bookvo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BookVO {
 	private int book_number;
 	private String book_name;
@@ -17,6 +19,7 @@ public class BookVO {
 	private String book_registerdate;
 	private String book_status;
 	private String book_opening;
+	private MultipartFile image_file;
 
 	public BookVO() {
 		super();
@@ -148,6 +151,14 @@ public class BookVO {
 
 	public void setBook_opening(String book_opening) {
 		this.book_opening = book_opening;
+	}
+
+	public MultipartFile getImage_file() {
+		return image_file;
+	}
+
+	public void setImage_file(MultipartFile image_file) {
+		this.image_file = image_file;
 	}
 
 }

@@ -17,17 +17,31 @@ public class BookServiceImpl implements BookService {
 	private BookDAO bookdao;
 
 	@Override
-	public int bookInsert(BookVO BookVO) {
+	public int bookInsert(BookVO bookVO) {
 		int result = 0;
-		result = bookdao.bookInsert(BookVO);
+		result = bookdao.bookInsert(bookVO);
 		return result;
 	}
 
 	@Override
-	public List<BookVO> bookSelect(BookVO BookVO) {
+	public List<BookVO> bookSelect(BookVO bookVO) {
 		List<BookVO> booklistget = null;
 		
-		booklistget = bookdao.bookSelect(BookVO);
+		booklistget = bookdao.bookSelect(bookVO);
 		return booklistget;
+	}
+
+	@Override
+	public BookVO bookDetailSelect(BookVO bookVO) {
+		BookVO bookdetail= new BookVO();
+		bookdetail = bookdao.bookDetailSelect(bookVO);
+		return bookdetail;
+	}
+
+	@Override
+	public int bookUpdate(BookVO bookVO) {
+		int result = 0;
+		result = bookdao.bookUpdate(bookVO);
+		return result;
 	}
 }

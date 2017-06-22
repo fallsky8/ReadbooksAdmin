@@ -17,12 +17,22 @@ public class BookDAOImpl implements BookDAO {
 	private SqlSession session;
 
 	@Override
-	public int bookInsert(BookVO BookVO) {
-		return session.insert("bookinsert", BookVO);
+	public int bookInsert(BookVO bookVO) {
+		return session.insert("bookinsert", bookVO);
 	}
 
 	@Override
-	public List<BookVO> bookSelect(BookVO BookVO) {
-		return session.selectList("booklist", BookVO);
+	public List<BookVO> bookSelect(BookVO bookVO) {
+		return session.selectList("booklist", bookVO);
+	}
+
+	@Override
+	public BookVO bookDetailSelect(BookVO bookVO) {
+		return session.selectOne("bookdetail", bookVO);
+	}
+
+	@Override
+	public int bookUpdate(BookVO bookVO) {
+		return session.update("bookupdate", bookVO);
 	}
 }
