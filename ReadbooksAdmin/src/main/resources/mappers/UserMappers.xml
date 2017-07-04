@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.readbooks.userdao.UserDAO">
+
+
+<select id="userlist" parameterType="user" resultType="user">
+		select
+	USER_ID,
+USER_ADDRESS,
+USER_NAME,
+USER_EMAIL,
+TO_CHAR(USER_REGISTERDATE,'YYYY-MM-DD') AS USER_REGISTERDATE,
+USER_SERVICEAGREEMENT,
+USER_COLLECTIVEAGREEMENT,
+USER_REFERRALAGREEMENT,
+USER_OUTREASON,USER_OUTDATE,
+USER_PHONENUMBER
+		from tbl_user
+	</select>
+<select id="userdetail" parameterType="user" resultType="user">
+		select
+		USER_ID,
+USER_ADDRESS,
+USER_NAME,
+USER_EMAIL,
+TO_CHAR(USER_REGISTERDATE,'YYYY-MM-DD') AS USER_REGISTERDATE,
+USER_SERVICEAGREEMENT,
+USER_COLLECTIVEAGREEMENT,
+USER_REFERRALAGREEMENT,
+USER_OUTREASON,
+TO_CHAR(USER_OUTDATE,'YYYY-MM-DD')AS USER_OUTDATE,
+USER_PHONENUMBER
+		from tbl_user where user_id = #{user_id}
+	</select>
+	<update id="userupdate" parameterType="user">
+		update
+		tbl_user
+		set
+		USER_OUTDATE=#{user_outdate},
+		USER_OUTREASON=#{user_outreason}
+		where USER_ID=#{user_id}
+
+
+	</update>
+</mapper>

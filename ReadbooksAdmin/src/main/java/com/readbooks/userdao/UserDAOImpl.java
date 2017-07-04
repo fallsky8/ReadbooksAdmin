@@ -20,4 +20,18 @@ public class UserDAOImpl implements UserDAO {
 	public List<UserVO> userSelect(UserVO user) {
 		return session.selectList("userlist", user);
 	}
+
+	@Override
+	public int userUpdate(UserVO user) {
+		return session.update("userupdate", user);
+	}
+
+	@Override
+	public UserVO userDetailSelect(UserVO user) {
+		return session.selectOne("userdetail", user);
+	}
+
+	
+
+
 }

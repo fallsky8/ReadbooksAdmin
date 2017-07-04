@@ -10,5 +10,9 @@ public interface FAQService {
 
 	public int faqInsert(FAQVO faq);
 
+	public FAQVO faqDetailSelect(FAQVO faq);
+
+	public int faqUpdate(FAQVO faq);
+
 
 }

@@ -35,14 +35,13 @@ public class AdminController {
 
 	@RequestMapping(value = "/checklogin", method = RequestMethod.POST)
 	public String checklogin(@ModelAttribute AdminVO admin, HttpSession session, Model model) {
-		session.setAttribute("CSRF_TOKEN", UUID.randomUUID().toString());
 		int result = 0;
 		String url = "";
 //		System.out.println(admin.getAdmin_id());
 		result = adminService.login(admin);
 		session.setAttribute("admin_id", admin.getAdmin_id());
 		if (result == 1) {
-			url = "admin/login";
+			url = "home";
 		}
 		return url;
 	}

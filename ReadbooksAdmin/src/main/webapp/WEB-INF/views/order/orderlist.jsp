@@ -14,7 +14,7 @@
 </script>
 <style type="text/css">
 #orderform {
-	margin: 50px;
+	margin: 100px;
 }
 </style>
 </head>
@@ -29,7 +29,8 @@
 				<table>
 					<thead>
 						<tr>
-							<th>유저 아이디</th>
+							<th>주문번호</th>
+							<th>아이디</th>
 							<th>상품 이름</th>
 							<th>주문자 이름</th>
 							<th>주문 날짜</th>
@@ -44,20 +45,21 @@
 				</table>
 			</div>
 			<div class="tbl-content">
-				<c:forEach var="orderbook" items="${orderlist}" varStatus="status">
+				<c:forEach var="orderlist" items="${orderlist}" varStatus="status">
 					<table>
 						<tbody>
 							<tr>
-								<td>${orderbook.user_id }</td>
-								<td>${orderbook.book_number }</td>
-								<td>${orderbook.order_orderer }</td>
-								<td>${orderbook.order_date }</td>
-								<td>${orderbook.order_paymentdate }</td>
-								<td>${orderbook.order_receiptaddress }</td>
-								<td>${orderbook.order_requirement }</td>
-								<td>${orderbook.order_status }</td>
-								<td>${orderbook.order_way }</td>
-								<td>${orderbook.order_quantity }</td>
+								<td>${orderlist.order_number }</td>
+								<td>${orderlist.user_id }</td>
+								<td>${orderlist.book_number }</td>
+								<td>${orderlist.order_orderer }</td>
+								<td>${orderlist.order_date }</td>
+								<td>${orderlist.order_paymentdate }</td>
+								<td>${orderlist.order_receiptaddress }</td>
+								<td>${orderlist.order_requirement }</td>
+								<td>${orderlist.order_status }</td>
+								<td>${orderlist.order_way }</td>
+								<td>${orderlist.order_quantity }</td>
 							</tr>
 						</tbody>
 					</table>

@@ -35,15 +35,14 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/bookinsert", method = RequestMethod.POST)
-	public String bookinsert(@ModelAttribute BookVO BookVO, @RequestParam("image_file") MultipartFile file,
+	public String bookinsert(@ModelAttribute BookVO book, @RequestParam("image_file") MultipartFile file,
 			HttpServletRequest request) {
-		logger.info("아아ㅏㅇ");
 		int result = 0;
 		String url = "";
 		String filename = "";
 
 		// 파일명 겟
-		if (!BookVO.getImage_file().isEmpty()) {
+		if (!book.getImage_file().isEmpty()) {
 			filename = file.getOriginalFilename();
 //저장될 경로 D:\SpringTeamProject\ReadBooks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ReadbooksAdmin\resources
 		//이 프로젝트 안에 관련되어있는 경로
@@ -51,11 +50,11 @@ public class BookController {
 			String path = request.getSession().getServletContext().getRealPath("/resources/image/");
 			try {
 				new File(path).mkdirs();
-				BookVO.getImage_file().transferTo(new File(path + filename));
+				book.getImage_file().transferTo(new File(path + filename));
 			} catch (Exception e) {
 			}
-			BookVO.setBook_image(filename);
-			result = bookservice.bookInsert(BookVO);
+			book.setBook_image(filename);
+			result = bookservice.bookInsert(book);
 		}
 
 		if (result == 1) {
@@ -65,18 +64,38 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/bookupdate", method = RequestMethod.POST)
-	public String bookupdate(@ModelAttribute BookVO BookVO) {
-		String opening_date = BookVO.getBook_opening().substring(0, 10);
-		BookVO.setBook_opening(opening_date);
-		int result = 0;
-		String url = "";
-		result = bookservice.bookUpdate(BookVO);
-		if (result == 1) {
-			url = "redirect:/booklist.do";
-		}
-		return url;
-	}
+	public String bookupdate(@ModelAttribute BookVO book,@RequestParam("image_file") MultipartFile file,
+			HttpServletRequest request) {
+		 int result = 0;
+	      String url = "";
+	      String filename = "";
+	      // 파일명 겟
+	      if (!book.getImage_file().isEmpty()) {
+	         filename = file.getOriginalFilename();
+	         // 저장될 경로
+	         // D:\SpringTeamProject\ReadBooks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ReadbooksAdmin\resources
+	         // 이 프로젝트 안에 관련되어있는 경로
 
+	         String path = request.getSession().getServletContext().getRealPath("/resources/image/");
+	         try {
+	            new File(path).mkdirs();
+	            book.getImage_file().transferTo(new File(path + filename));
+	         } catch (Exception e) {
+	         }
+	     	book.setBook_image(filename);
+	      } else {
+	      }
+	      result = bookservice.bookUpdate(book);
+
+	      if (result == 1) {
+	    	  url = "redirect:/booklist.do";
+
+	      }
+	      return url;
+	   }
+	
+
+	
 	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
 	public String booklist(@ModelAttribute BookVO book, Model model) {
 

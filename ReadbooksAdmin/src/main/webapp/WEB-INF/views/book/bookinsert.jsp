@@ -8,12 +8,19 @@
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	$(function() {
+
+		var admin_id = "${sessionScope.admin_id}";
+
 		$("#btnbookinsert").click(function() {
+			if (admin_id == "admin") {
 			$("#bookinsertform").attr({
 				"method" : "POST",
 				"action" : "/bookinsert.do"
 			});
 			$("#bookinsertform").submit();
+			} else {
+				alert("권한이 없습니다 로그인 해주세요")
+			}
 		});
 
 		$("#btnbookcancle").click(function() {
@@ -22,8 +29,8 @@
 	});
 </script>
 <style type="text/css">
-#bookinsertform {
-	margin: 50px;
+#bookform {
+		margin: 100px 100px 100px 150px;
 }
 
 th {
@@ -34,8 +41,8 @@ td input {
 	width: 60%;
 }
 
-#book_image {
-	color: white;
+#image_file {
+	color: white !important;
 }
 
 td textarea {
@@ -47,7 +54,7 @@ td textarea {
 </head>
 <body>
 	<jsp:include page="../nav.jsp"></jsp:include>
-	<div>
+	<div id="bookform">
 
 		<h1>상품 등록</h1>
 		<form id="bookinsertform" name="bookinsertform"

@@ -23,20 +23,21 @@ public class FAQController {
 	private FAQService faqService;
 
 	@RequestMapping(value = "/faqlist", method = RequestMethod.GET)
-	public String OrderListGet(@ModelAttribute FAQVO faq, Model model) {
+	public String faqlist(@ModelAttribute FAQVO faq, Model model) {
 		List<FAQVO> faqlist = new ArrayList<FAQVO>();
 
 		faqlist = faqService.faqSelect(faq);
 		model.addAttribute("faqlist", faqlist);
 		return "board/faqlist";
 	}
-	
+
 	@RequestMapping(value = "/faqinsertpage")
 	public String faqinsertpage(HttpSession https) {
 
 		return "board/faqinsert";
 
 	}
+
 	@RequestMapping(value = "/faqinsert", method = RequestMethod.POST)
 	public String faqinsert(@ModelAttribute FAQVO faq) {
 		int result = 0;
@@ -47,28 +48,24 @@ public class FAQController {
 		}
 		return url;
 	}
-//	@RequestMapping(value = "/bookupdate", method = RequestMethod.POST)
-//	public String bookupdate(@ModelAttribute BookVO BookVO) {
-//		String opening_date= BookVO.getBook_opening().substring(0, 10);
-//		BookVO.setBook_opening(opening_date);
-//		int result = 0;
-//		String url = "";
-//		result = bookservice.bookUpdate(BookVO);
-//		if (result == 1) {
-//			url = "redirect:/booklist.do";
-//		}
-//		return url;
-//	}
-//	
-//
-//	@RequestMapping(value = "/bookdetail", method = RequestMethod.GET)
-//	public String bookdetail(@ModelAttribute BookVO book, Model model) {
-//		
-//		BookVO bookdetail = new BookVO();
-//		bookdetail = bookservice.bookDetailSelect(book);
-//		model.addAttribute("bookdetail", bookdetail);
-//		return "book/bookdetail";
-//	}
 
+	@RequestMapping(value = "/faqupdate", method = RequestMethod.POST)
+	public String faqupdate(@ModelAttribute FAQVO faq) {
+		int result = 0;
+		String url = "";
+		result = faqService.faqUpdate(faq);
+		if (result == 1) {
+			url = "/faqlist.do";
+		}
+		return "redirect:" + url;
+	}
+
+	@RequestMapping(value = "/faqdetail", method = RequestMethod.GET)
+	public String faqDetail(@ModelAttribute FAQVO faq, Model model) {
+		FAQVO faqdetail = new FAQVO();
+		faqdetail = faqService.faqDetailSelect(faq);
+		model.addAttribute("faqdetail", faqdetail);
+		return "board/faqdetail";
+	}
 
 }

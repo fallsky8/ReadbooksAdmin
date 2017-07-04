@@ -17,7 +17,8 @@
 <script src='<c:url value="/js/bootstrap.min.js"  />'></script>
 <style type="text/css">
 #mailform {
-	margin: 50px;
+	margin: 100px 100px 100px 150px;
+
 }
 </style>
 <title>메일 보내기</title>

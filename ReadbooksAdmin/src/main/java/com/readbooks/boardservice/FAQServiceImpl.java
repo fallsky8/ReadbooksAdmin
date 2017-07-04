@@ -16,7 +16,6 @@ public class FAQServiceImpl implements FAQService {
 	@Autowired
 	private FAQDAO faqdao;
 
-	
 	@Override
 	public List<FAQVO> faqSelect(FAQVO faq) {
 		List<FAQVO> faqlistget = null;
@@ -25,11 +24,24 @@ public class FAQServiceImpl implements FAQService {
 		return faqlistget;
 	}
 
-
 	@Override
 	public int faqInsert(FAQVO faq) {
 		int result = 0;
 		result = faqdao.faqInsert(faq);
+		return result;
+	}
+
+	@Override
+	public FAQVO faqDetailSelect(FAQVO faq) {
+		FAQVO faqdetail = null;
+		faqdetail = faqdao.faqDetailSelect(faq);
+		return faqdetail;
+	}
+
+	@Override
+	public int faqUpdate(FAQVO faq) {
+		int result = 0;
+		result = faqdao.faqUpdate(faq);
 		return result;
 	}
 }

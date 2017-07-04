@@ -23,4 +23,30 @@ public class UserServiceImpl implements UserService {
 		userlistget = userdao.userSelect(user);
 		return userlistget;
 	}
+
+	@Override
+	public int userUpdate(UserVO user) {
+		int result = 0;
+		result = userdao.userUpdate(user);
+		return result;
+	}
+
+	@Override
+	public UserVO userDetailSelect(UserVO user) {
+		UserVO userdetail= new UserVO();
+		userdetail = userdao.userDetailSelect(user);
+		return userdetail;
+	}
+
+	@Override
+	public String getId(UserVO userVo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPwd(UserVO userVo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

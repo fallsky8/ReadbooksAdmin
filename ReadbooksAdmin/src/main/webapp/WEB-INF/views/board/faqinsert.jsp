@@ -3,17 +3,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>리드북스 상품 등록</title>
+<title>FAQ 등록</title>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	$(function() {
+		var admin_id="${sessionScope.admin_id}";
+			
 		$("#btnfaqinsert").click(function() {
+		if(admin_id=="admin"){
 			$("#faqinsertform").attr({
 				"method" : "POST",
 				"action" : "/faqinsert.do"
 			});
 			$("#faqinsertform").submit();
+		}else {
+			alert("권한이 없습니다 로그인 해주세요")
+		}
 		});
 
 		$("#btnfaqcancle").click(function() {
@@ -41,13 +47,17 @@ td textarea {
 	width: 95%;
 	height: 150px;
 }
+#faqform {
+		margin: 100px 100px 100px 150px;
+}
+
 </style>
 </head>
 <body>
 	<jsp:include page="../nav.jsp"></jsp:include>
-	<div>
+	<div id="faqform">
 
-		<h1>FAQ 게시판 등록</h1>
+		<h1>FAQ 등록</h1>
 		<form id="faqinsertform" name="faqinsertform">
 			<input id="admin_id" name="admin_id" type="hidden"
 				value="${sessionScope.admin_id }">
@@ -66,11 +76,11 @@ td textarea {
 
 
 				<tr>
-					<th>Q</th>
+					<th>Question</th>
 					<td colspan="3"><textarea id="faqboard_question" name="faqboard_question"></textarea></td>
 				</tr>
 				<tr>
-					<th>A</th>
+					<th>Answer</th>
 					<td colspan="3"><textarea id="faqboard_answer" name="faqboard_answer"></textarea></td>
 				</tr>
 

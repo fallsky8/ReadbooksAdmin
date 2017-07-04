@@ -8,4 +8,8 @@ public interface UserDAO {
 
 	public List<UserVO> userSelect(UserVO user);
 
+	public int userUpdate(UserVO user);
+
+	public UserVO userDetailSelect(UserVO user);
+
 }

@@ -25,4 +25,14 @@ public class FAQDAOImpl implements FAQDAO {
 	public int faqInsert(FAQVO faq) {
 		return session.insert("faqinsert", faq);
 	}
+
+	@Override
+	public FAQVO faqDetailSelect(FAQVO faq) {
+		return (FAQVO) session.selectOne("faqdetail", faq);
+	}
+
+	@Override
+	public int faqUpdate(FAQVO faq) {
+		return session.update("faqupdate", faq);
+	}
 }

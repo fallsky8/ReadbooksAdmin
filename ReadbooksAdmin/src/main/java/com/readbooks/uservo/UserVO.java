@@ -10,10 +10,9 @@ public class UserVO {
 	private String user_pwquestion;
 	private String user_pwanswer;
 	private String user_registerdate;
-	private int user_point;
 	private String user_serviceagreement;
 	private String user_collectiveagreement;
-	private String user_refferralagreement;
+	private String user_referralagreement;
 	private String user_outreason;
 	private String user_outdate;
 
@@ -90,16 +89,10 @@ public class UserVO {
 	}
 
 	public void setUser_registerdate(String user_registerdate) {
-		this.user_registerdate = user_registerdate.substring(0,10);
+		this.user_registerdate = user_registerdate;
 	}
 
-	public int getUser_point() {
-		return user_point;
-	}
-
-	public void setUser_point(int user_point) {
-		this.user_point = user_point;
-	}
+	
 
 	public String getUser_serviceagreement() {
 		return user_serviceagreement;
@@ -117,12 +110,13 @@ public class UserVO {
 		this.user_collectiveagreement = user_collectiveagreement;
 	}
 
-	public String getUser_refferralagreement() {
-		return user_refferralagreement;
+	
+	public String getUser_referralagreement() {
+		return user_referralagreement;
 	}
 
-	public void setUser_refferralagreement(String user_refferralagreement) {
-		this.user_refferralagreement = user_refferralagreement;
+	public void setUser_referralagreement(String user_referralagreement) {
+		this.user_referralagreement = user_referralagreement;
 	}
 
 	public String getUser_outreason() {
@@ -138,7 +132,7 @@ public class UserVO {
 	}
 
 	public void setUser_outdate(String user_outdate) {
-		this.user_outdate = user_outdate.substring(0,10);
+		this.user_outdate = user_outdate;
 	}
 	
 

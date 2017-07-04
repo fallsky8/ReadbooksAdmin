@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.readbooks.boarddao.InquireDAO">
+
+	<select id="inquirelist" parameterType="inquire" resultType="inquire">
+		select
+		INQUIREBOARD_NUMBER,
+		USER_ID,
+		INQUIREBOARD_TITLE,
+		INQUIREBOARD_CONTENTS,
+		TO_CHAR(INQUIREBOARD_REGISTERDATE,'YYYY-MM-DD')
+		AS INQUIREBOARD_REGISTERDATE,
+		INQUIREBOARD_ATTACHMENTFILE,
+		INQUIREBOARD_ANSWER,
+		INQUIREBOARD_TYPE
+		from
+		TBL_INQUIREBOARD ORDER BY
+		INQUIREBOARD_NUMBER DESC
+	</select>
+	<select id="inquiredetail" parameterType="inquire" resultType="inquire">
+		select
+		INQUIREBOARD_NUMBER,
+		USER_ID,
+		INQUIREBOARD_TITLE,
+		INQUIREBOARD_CONTENTS,
+		TO_CHAR(INQUIREBOARD_REGISTERDATE,'YYYY-MM-DD')
+		AS INQUIREBOARD_REGISTERDATE,
+		INQUIREBOARD_ATTACHMENTFILE,
+		INQUIREBOARD_ANSWER,
+		INQUIREBOARD_TYPE
+		from TBL_INQUIREBOARD where
+		INQUIREBOARD_NUMBER = #{inquireboard_number}
+	</select>
+	<update id="inquireupdate" parameterType="inquire">
+		update
+		tbl_inquireboard
+		set
+		INQUIREBOARD_ANSWER=#{inquireboard_answer}
+		where
+		INQUIREBOARD_NUMBER=#{inquireboard_number}
+	</update>
+</mapper>

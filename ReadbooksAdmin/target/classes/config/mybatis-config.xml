@@ -9,5 +9,8 @@
 		<typeAlias type="com.readbooks.ordervo.OrderVO" alias="order" />
 		<typeAlias type="com.readbooks.uservo.UserVO" alias="user" />
 		<typeAlias type="com.readbooks.boardvo.FAQVO" alias="faq" />
+		<typeAlias type="com.readbooks.boardvo.NoticeVO" alias="notice" />
+		<typeAlias type="com.readbooks.boardvo.InquireVO" alias="inquire" />
+		<typeAlias type="com.readbooks.agreementvo.AgreementVO" alias="agreement" />
 	</typeAliases>
 </configuration>

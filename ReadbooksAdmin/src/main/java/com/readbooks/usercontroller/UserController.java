@@ -18,14 +18,35 @@ import com.readbooks.uservo.UserVO;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private UserService userservice;
 
 	@RequestMapping(value = "/userlist", method = RequestMethod.GET)
-	public String bestbookGet(@ModelAttribute UserVO user, Model model) {
+	public String userlist(@ModelAttribute UserVO user, Model model) {
 		List<UserVO> userlist = new ArrayList<UserVO>();
-		userlist = userService.userSelect(user);
-		model.addAttribute("userlistget", userlist);
+		userlist = userservice.userSelect(user);
+		model.addAttribute("userlist", userlist);
 		return "user/userlist";
+	}
+
+	@RequestMapping(value = "/userupdate", method = RequestMethod.POST)
+	public String userupdate(@ModelAttribute UserVO user) {
+		int result = 0;
+	
+		String url = "";
+		result = userservice.userUpdate(user);
+		if (result == 1) {
+			url = "redirect:/userlist.do";
+		}
+		return url;
+	}
+
+	@RequestMapping(value = "/userdetail", method = RequestMethod.GET)
+	public String user(@ModelAttribute UserVO user, Model model) {
+
+		UserVO userdetail = new UserVO();
+		userdetail = userservice.userDetailSelect(user);
+		model.addAttribute("userdetail", userdetail);
+		return "user/userdetail";
 	}
 
 }

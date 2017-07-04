@@ -71,7 +71,7 @@ public class FAQVO {
 
 
 	public void setFaqboard_registerdate(String faqboard_registerdate) {
-		this.faqboard_registerdate = faqboard_registerdate.substring(0,10);
+		this.faqboard_registerdate = faqboard_registerdate;
 	}
 	
 }

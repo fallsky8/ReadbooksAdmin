@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.readbooks.boarddao.FAQDAO">
+	<insert id="faqinsert" parameterType="faq">
+		insert into
+		tbl_faqboard(FAQBOARD_NUMBER,ADMIN_ID,FAQBOARD_TYPE,FAQBOARD_QUESTION,FAQBOARD_ANSWER,FAQBOARD_REGISTERDATE)
+		values(FAQ_NUMBER_SEQ.nextval,#{admin_id},#{faqboard_type},#{faqboard_question},#{faqboard_answer},sysdate)
+	</insert>
+
+	<select id="faqlist" parameterType="faq" resultType="faq">
+		select
+		FAQBOARD_NUMBER,
+		ADMIN_ID,
+		FAQBOARD_TYPE,
+		FAQBOARD_QUESTION,
+		FAQBOARD_ANSWER,
+		TO_CHAR(FAQBOARD_REGISTERDATE,'YYYY-MM-DD') AS FAQBOARD_REGISTERDATE
+		from
+		tbl_faqboard ORDER BY FAQBOARD_NUMBER DESC
+	</select>
+	<select id="faqdetail" parameterType="faq" resultType="faq">
+		select
+		FAQBOARD_NUMBER,
+		ADMIN_ID,
+		FAQBOARD_TYPE,
+		FAQBOARD_QUESTION,
+		FAQBOARD_ANSWER,
+		TO_CHAR(FAQBOARD_REGISTERDATE,'YYYY-MM-DD') AS FAQBOARD_REGISTERDATE
+		from tbl_faqboard where faqboard_number = #{faqboard_number}
+	</select>
+	<update id="faqupdate" parameterType="faq">
+		update
+		tbl_faqboard
+		set
+		FAQBOARD_TYPE=#{faqboard_type},
+		FAQBOARD_QUESTION=#{faqboard_question},FAQBOARD_ANSWER=#{faqboard_answer}
+		where FAQBOARD_NUMBER=#{faqboard_number}
+	</update>
+</mapper>

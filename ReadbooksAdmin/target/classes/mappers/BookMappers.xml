@@ -11,12 +11,46 @@
 
 	<select id="booklist" parameterType="book" resultType="book">
 		select
-		*
+		BOOK_NUMBER,
+		BOOK_NAME,
+		BOOK_QUANTITY,
+		BOOK_PRICE,
+		BOOK_COUNTRY,
+		BOOK_STORY,
+		BOOK_WRITER,
+		BOOK_PUBLISHER,
+		BOOK_BOOKINFO,
+		BOOK_WRITERINFO,
+		BOOK_PUBLISHERREVIEW,
+		BOOK_IMAGE,
+		BOOK_DISCOUNT,
+		TO_CHAR(BOOK_REGISTERDATE,'YYYY-MM-DD') AS
+		BOOK_REGISTERDATE,
+		BOOK_STATUS,
+		TO_CHAR(BOOK_OPENING,'YYYY-MM-DD') AS
+		BOOK_OPENING
 		from tbl_book
 	</select>
 	<select id="bookdetail" parameterType="book" resultType="book">
 		select
-		*
+		BOOK_NUMBER,
+		BOOK_NAME,
+		BOOK_QUANTITY,
+		BOOK_PRICE,
+		BOOK_COUNTRY,
+		BOOK_STORY,
+		BOOK_WRITER,
+		BOOK_PUBLISHER,
+		BOOK_BOOKINFO,
+		BOOK_WRITERINFO,
+		BOOK_PUBLISHERREVIEW,
+		BOOK_IMAGE,
+		BOOK_DISCOUNT,
+		TO_CHAR(BOOK_REGISTERDATE,'YYYY-MM-DD') AS
+		BOOK_REGISTERDATE,
+		BOOK_STATUS,
+		TO_CHAR(BOOK_OPENING,'YYYY-MM-DD') AS
+		BOOK_OPENING
 		from tbl_book where book_number = #{book_number}
 	</select>
 	<update id="bookupdate" parameterType="book">

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.readbooks.boarddao.NoticeDAO">
+	<insert id="noticeinsert" parameterType="notice">
+		insert into
+		tbl_noticeboard(NOTICEBOARD_NUMBER,ADMIN_ID,NOTICEBOARD_TITLE,NOTICEBOARD_WRITER,NOTICEBOARD_REGISTERDATE,NOTICEBOARD_CONTENTS)
+		values(NOTICE_NUMBER_SEQ.nextval,#{admin_id},#{noticeboard_title},'관리자',sysdate,#{noticeboard_contents})
+	</insert>
+
+	<select id="noticelist" parameterType="notice" resultType="notice">
+		select
+		NOTICEBOARD_NUMBER,
+		ADMIN_ID,
+		NOTICEBOARD_TITLE,
+		NOTICEBOARD_WRITER,
+		TO_CHAR(NOTICEBOARD_REGISTERDATE,'YYYY-MM-DD')
+		as
+		NOTICEBOARD_REGISTERDATE,
+		NOTICEBOARD_CONTENTS
+		from tbl_noticeboard
+		order
+		by NOTICEBOARD_NUMBER
+		DESC
+	</select>
+	<select id="noticedetail" parameterType="notice" resultType="notice">
+		select
+		NOTICEBOARD_NUMBER,ADMIN_ID,
+		NOTICEBOARD_TITLE,NOTICEBOARD_WRITER,TO_CHAR(NOTICEBOARD_REGISTERDATE,'YYYY-MM-DD')as NOTICEBOARD_REGISTERDATE,NOTICEBOARD_CONTENTS
+		from tbl_noticeboard
+		where
+		NOTICEBOARD_NUMBER =#{noticeboard_number}
+	</select>
+	<update id="noticeupdate" parameterType="notice">
+		update
+		tbl_noticeboard
+		set
+		NOTICEBOARD_TITLE=#{noticeboard_title},
+		NOTICEBOARD_WRITER=#{noticeboard_writer},NOTICEBOARD_CONTENTS=#{noticeboard_contents}
+		where NOTICEBOARD_NUMBER=#{noticeboard_number}
+
+
+
+
+	</update>
+</mapper>

@@ -21,14 +21,14 @@ public class BookDAOImpl implements BookDAO {
 		return session.insert("bookinsert", bookVO);
 	}
 
-	@Override
-	public List<BookVO> bookSelect(BookVO bookVO) {
-		return session.selectList("booklist", bookVO);
-	}
 
 	@Override
 	public BookVO bookDetailSelect(BookVO bookVO) {
 		return session.selectOne("bookdetail", bookVO);
+	}
+	@Override
+	public List<BookVO> bookSelect(BookVO bookVO) {
+		return session.selectList("booklist", bookVO);
 	}
 
 	@Override
