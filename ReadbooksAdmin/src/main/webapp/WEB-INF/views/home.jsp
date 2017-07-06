@@ -16,7 +16,6 @@
 	<jsp:include page="nav.jsp"></jsp:include>
 		<div>
 		<jsp:include page="admin/login.jsp"></jsp:include>
-		
 		</div>
 	</div>
 </body>
