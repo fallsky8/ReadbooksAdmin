@@ -1,31 +1,28 @@
 /**
- * jqPlot
- * Pure JavaScript plotting plugin using jQuery
- *
- * Version: 1.0.0
- * Revision: 1095
- *
- * Copyright (c) 2009-2011 Chris Leonello
- * jqPlot is currently available for use in all personal or commercial projects 
- * under both the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL 
- * version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html) licenses. This means that you can 
- * choose the license that best suits your project and use it accordingly. 
- *
- * Although not required, the author would appreciate an email letting him 
- * know of any substantial use of jqPlot.  You can reach the author at: 
- * chris at jqplot dot com or see http://www.jqplot.com/info.php .
- *
+ * jqPlot Pure JavaScript plotting plugin using jQuery
+ * 
+ * Version: 1.0.0 Revision: 1095
+ * 
+ * Copyright (c) 2009-2011 Chris Leonello jqPlot is currently available for use
+ * in all personal or commercial projects under both the MIT
+ * (http://www.opensource.org/licenses/mit-license.php) and GPL version 2.0
+ * (http://www.gnu.org/licenses/gpl-2.0.html) licenses. This means that you can
+ * choose the license that best suits your project and use it accordingly.
+ * 
+ * Although not required, the author would appreciate an email letting him know
+ * of any substantial use of jqPlot. You can reach the author at: chris at
+ * jqplot dot com or see http://www.jqplot.com/info.php .
+ * 
  * If you are feeling kind and generous, consider supporting the project by
  * making a donation at: http://www.jqplot.com/donate.php .
- *
+ * 
  * sprintf functions contained in jqplot.sprintf.js by Ash Searle:
- *
- *     version 2007.04.27
- *     author Ash Searle
- *     http://hexmen.com/blog/2007/03/printf-sprintf/
- *     http://hexmen.com/js/sprintf.js
- *     The author (Ash Searle) has placed this code in the public domain:
- *     "This code is unrestricted: you are free to use it however you like."
+ * 
+ * version 2007.04.27 author Ash Searle
+ * http://hexmen.com/blog/2007/03/printf-sprintf/
+ * http://hexmen.com/js/sprintf.js The author (Ash Searle) has placed this code
+ * in the public domain: "This code is unrestricted: you are free to use it
+ * however you like."
  * 
  */
 (function($) {
@@ -55,14 +52,15 @@
         // 'vertical' = up and down bars, 'horizontal' = side to side bars
         this.barDirection = 'vertical';
         // prop: barWidth
-        // Width of the bar in pixels (auto by devaul).  null = calculated automatically.
+        // Width of the bar in pixels (auto by devaul). null = calculated
+		// automatically.
         this.barWidth = null;
         // prop: shadowOffset
-        // offset of the shadow from the slice and offset of 
+        // offset of the shadow from the slice and offset of
         // each succesive stroke of the shadow from the last.
         this.shadowOffset = 2;
         // prop: shadowDepth
-        // number of strokes to apply to the shadow, 
+        // number of strokes to apply to the shadow,
         // each stroke offset shadowOffset from the last.
         this.shadowDepth = 5;
         // prop: shadowAlpha
@@ -84,7 +82,8 @@
         this.varyBarColor = false;
         // prop: highlightMouseOver
         // True to highlight slice when moused over.
-        // This must be false to enable highlightMouseDown to highlight when clicking on a slice.
+        // This must be false to enable highlightMouseDown to highlight when
+		// clicking on a slice.
         this.highlightMouseOver = true;
         // prop: highlightMouseDown
         // True to highlight when a mouse button is pressed over a slice.
@@ -94,10 +93,10 @@
         // an array of colors to use when highlighting a bar.
         this.highlightColors = [];
         // prop: transposedData
-        // NOT IMPLEMENTED YET.  True if this is a horizontal bar plot and 
-        // x and y values are "transposed".  Tranposed, or "swapped", data is 
-        // required prior to rev. 894 builds of jqPlot with horizontal bars. 
-        // Allows backward compatability of bar renderer horizontal bars with 
+        // NOT IMPLEMENTED YET. True if this is a horizontal bar plot and
+        // x and y values are "transposed". Tranposed, or "swapped", data is
+        // required prior to rev. 894 builds of jqPlot with horizontal bars.
+        // Allows backward compatability of bar renderer horizontal bars with
         // old style data sets.
         this.transposedData = true;
         this.renderer.animation = {
@@ -108,18 +107,19 @@
         };
         this._type = 'bar';
         
-        // if user has passed in highlightMouseDown option and not set highlightMouseOver, disable highlightMouseOver
+        // if user has passed in highlightMouseDown option and not set
+		// highlightMouseOver, disable highlightMouseOver
         if (options.highlightMouseDown && options.highlightMouseOver == null) {
             options.highlightMouseOver = false;
         }
         
-        //////
+        // ////
         // This is probably wrong here.
         // After going back and forth on wether renderer should be the thing
         // or extend the thing, it seems that it it best if it is a property
-        // on the thing.  This should be something that is commonized 
+        // on the thing. This should be something that is commonized
         // among series renderers in the future.
-        //////
+        // ////
         $.extend(true, this, options);
 
         // really should probably do this
@@ -150,7 +150,8 @@
         }
         // index of the currenty highlighted point, if any
         this._highlightedPoint = null;
-        // total number of values for all bar series, total number of bar series, and position of this series
+        // total number of values for all bar series, total number of bar
+		// series, and position of this series
         this._plotSeriesInfo = null;
         // Array of actual data colors used for each data point.
         this._dataColors = [];
@@ -232,12 +233,14 @@
                 nseries += 1;
             }
         }
-        // return total number of values for all bar series, total number of bar series, and position of this series
+        // return total number of values for all bar series, total number of bar
+		// series, and position of this series
         return [nvals, nseries, pos];
     };
 
     $.jqplot.BarRenderer.prototype.setBarWidth = function() {
-        // need to know how many data values we have on the approprate axis and figure it out.
+        // need to know how many data values we have on the approprate axis and
+		// figure it out.
         var i;
         var nvals = 0;
         var nseries = 0;
@@ -255,7 +258,8 @@
             }
             else {
                 this.barWidth = ((paxis._offsets.max - paxis._offsets.min)/nbins  - this.barPadding * (nseries-1) - this.barMargin*2)/nseries;
-                // this.barWidth = (paxis._offsets.max - paxis._offsets.min) / nvals - this.barPadding - this.barMargin/nseries;
+                // this.barWidth = (paxis._offsets.max - paxis._offsets.min) /
+				// nvals - this.barPadding - this.barMargin/nseries;
             }
         }
         else {
@@ -264,7 +268,8 @@
             }
             else {
                 this.barWidth = ((paxis._offsets.min - paxis._offsets.max)/nbins  - this.barPadding * (nseries-1) - this.barMargin*2)/nseries;
-                // this.barWidth = (paxis._offsets.min - paxis._offsets.max) / nvals - this.barPadding - this.barMargin/nseries;
+                // this.barWidth = (paxis._offsets.min - paxis._offsets.max) /
+				// nvals - this.barPadding - this.barMargin/nseries;
             }
         }
         return [nvals, nseries];
@@ -409,7 +414,8 @@
 						points.push([base+this.barWidth/2, gridData[i][1]]);
 						points.push([base+this.barWidth/2, ystart]);
 					}
-					// for negative bars make sure points are always ordered clockwise
+					// for negative bars make sure points are always ordered
+					// clockwise
 					else {              
 						points.push([base-this.barWidth/2, gridData[i][1]]);
 						points.push([base-this.barWidth/2, ystart]);
@@ -641,9 +647,10 @@
     
     // called within context of plot
     // create a canvas which we can draw on.
-    // insert it before the eventCanvas, so eventCanvas will still capture events.
+    // insert it before the eventCanvas, so eventCanvas will still capture
+	// events.
     function postPlotDraw() {
-        // Memory Leaks patch    
+        // Memory Leaks patch
         if (this.plugins.barRenderer && this.plugins.barRenderer.highlightCanvas) {
 
             this.plugins.barRenderer.highlightCanvas.resetCanvas();
