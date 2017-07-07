@@ -19,8 +19,15 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<OrderVO> orderSelect(OrderVO order) {
 		List<OrderVO> orderlistget = null;
-		
+
 		orderlistget = orderdao.orderSelect(order);
 		return orderlistget;
+	}
+
+	@Override
+	public List<OrderVO> grossprofit(OrderVO order) {
+		List<OrderVO> grossprofit = null;
+		grossprofit = orderdao.grossprofit(order);
+		return grossprofit;
 	}
 }

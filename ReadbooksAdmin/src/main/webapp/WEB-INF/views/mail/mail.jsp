@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +15,16 @@
 	$(document).ready(
 			function() {
 				$.jqplot.config.enablePlugins = true;
-				var s1 = [ 2, 6, 7, 10 ];
-				var ticks = [ 'a', 'b', 'c', 'd' ];
-
-				plot1 = $.jqplot('chart1', [ s1 ], {
+				var gross = new Array();
+				var orderyear = new Array();
+				<c:forEach var="itemList" items="${grossprofit}" >
+				gross.push("${itemList.getGross()}");
+				orderyear.push("${itemList.getOrderyear()}")
+				</c:forEach>
+				var maxgross = gross.reduce(function(previous, current) {
+					return previous > current ? previous : current;
+				});
+				plot1 = $.jqplot('chart1', [ gross ], {
 					seriesDefaults : {
 						renderer : $.jqplot.BarRenderer,
 						pointLabels : {
@@ -30,7 +34,10 @@
 					axes : {
 						xaxis : {
 							renderer : $.jqplot.CategoryAxisRenderer,
-							ticks : ticks
+							ticks : orderyear
+						},
+						yaxis : {
+							max : parseInt(maxgross) + 50000
 						}
 					},
 					highlighter : {
@@ -49,10 +56,11 @@
 <title>리드북스 통계</title>
 </head>
 <body>
+	<jsp:include page="../nav.jsp"></jsp:include>
 	<div>
-		<span>You Clicked: </span><span id="info1">Nothing yet</span>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>You Clicked: </span><span id="info1">Nothing yet</span>
 	</div>
 	<div id="chart1"
-		style="margin-top: 20px; margin-left: 20px; width: 300px; height: 300px;"></div>
+		style="margin-top: 20px; margin-left: 100px; width: 1000px; height: 400px;"></div>
 </body>
 </html>

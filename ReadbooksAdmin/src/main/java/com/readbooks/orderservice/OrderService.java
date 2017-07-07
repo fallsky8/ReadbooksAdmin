@@ -8,4 +8,6 @@ public interface OrderService {
 
 	public List<OrderVO> orderSelect(OrderVO order);
 
+	public List<OrderVO> grossprofit(OrderVO order);
+
 }

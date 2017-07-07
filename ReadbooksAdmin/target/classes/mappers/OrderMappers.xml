@@ -22,5 +22,15 @@
 		ORDER_ORDERNUMBER
 		from tbl_order
 	</select>
+	<select id="grossprofit" parameterType="order" resultType="order">
+		select sum(order_orderprice)as gross,to_char(order_date,'yyyy')as
+		orderyear from tbl_order
+		where to_char(order_date,'yyyy') >
+		to_char(sysdate,'yyyy')-4 and
+		order_status='입금완료' group by
+		to_char(order_date,'yyyy')
+	</select>
+
+
 
 </mapper>

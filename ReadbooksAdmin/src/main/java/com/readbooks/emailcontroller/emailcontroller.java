@@ -21,17 +21,11 @@ public class emailcontroller {
 	private JavaMailSender mailSender;
 
 	// mailForm
-	@RequestMapping(value = "/mail")
-	public String mailForm() {
-
-		return "/mail/mail";
-	}
 
 	// 메일 보내기
 	@RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
 	@ResponseBody
 	public String sendEmail(@ModelAttribute UserVO param) {
-
 
 		// 난수 발생
 		String authNum = randomNum() + "";
@@ -62,9 +56,8 @@ public class emailcontroller {
 
 	private String randomNum() {
 
-		return  ((int)(Math.random()* 100000))+"";
-	
+		return ((int) (Math.random() * 100000)) + "";
+
 	}
-	
-	
+
 }

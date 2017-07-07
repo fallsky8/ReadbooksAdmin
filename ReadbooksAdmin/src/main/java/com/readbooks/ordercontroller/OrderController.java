@@ -30,4 +30,12 @@ public class OrderController {
 		return "order/orderlist";
 	}
 
+	@RequestMapping(value = "/mail", method = RequestMethod.GET)
+	public String mailForm(@ModelAttribute OrderVO order, Model model) {
+		List<OrderVO> grossprofit = new ArrayList<OrderVO>();
+		grossprofit = orderService.grossprofit(order);
+		model.addAttribute("grossprofit", grossprofit);
+		return "/mail/mail";
+	}
+
 }

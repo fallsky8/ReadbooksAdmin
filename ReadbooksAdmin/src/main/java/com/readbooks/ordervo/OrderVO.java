@@ -1,6 +1,5 @@
 package com.readbooks.ordervo;
 
-
 public class OrderVO {
 	private int order_number;
 	private String user_id;
@@ -15,9 +14,27 @@ public class OrderVO {
 	private String order_status;
 	private String order_way;
 	private int order_quantity;
+	private int gross;
+	private String orderyear;
 
 	public OrderVO() {
 		super();
+	}
+
+	public int getGross() {
+		return gross;
+	}
+
+	public void setGross(int gross) {
+		this.gross = gross;
+	}
+
+	public String getOrderyear() {
+		return orderyear;
+	}
+
+	public void setOrderyear(String orderyear) {
+		this.orderyear = orderyear;
 	}
 
 	public int getOrder_number() {
