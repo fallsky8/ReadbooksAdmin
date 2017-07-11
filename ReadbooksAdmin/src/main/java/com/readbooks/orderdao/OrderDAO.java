@@ -10,4 +10,10 @@ public interface OrderDAO {
 
 	public List<OrderVO> grossprofit(OrderVO order);
 
+	public List<OrderVO> grossprofitmonth(OrderVO order);
+
+	public List<OrderVO> grossprofitkorea(OrderVO order);
+
+	public List<OrderVO> grossprofitforeign(OrderVO order);
+
 }

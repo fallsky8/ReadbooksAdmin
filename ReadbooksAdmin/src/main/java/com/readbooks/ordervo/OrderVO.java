@@ -16,9 +16,63 @@ public class OrderVO {
 	private int order_quantity;
 	private int gross;
 	private String orderyear;
+	private int grossmonth;
+	private String ordermonth;
+	private int grossforeign;
+	private String orderyearforeign;
+	private int grosskorea;
+	private String orderyearkorea;
 
 	public OrderVO() {
 		super();
+	}
+
+	public int getGrossforeign() {
+		return grossforeign;
+	}
+
+	public void setGrossforeign(int grossforeign) {
+		this.grossforeign = grossforeign;
+	}
+
+	public String getOrderyearforeign() {
+		return orderyearforeign;
+	}
+
+	public void setOrderyearforeign(String orderyearforeign) {
+		this.orderyearforeign = orderyearforeign;
+	}
+
+	public int getGrosskorea() {
+		return grosskorea;
+	}
+
+	public void setGrosskorea(int grosskorea) {
+		this.grosskorea = grosskorea;
+	}
+
+	public String getOrderyearkorea() {
+		return orderyearkorea;
+	}
+
+	public void setOrderyearkorea(String orderyearkorea) {
+		this.orderyearkorea = orderyearkorea;
+	}
+
+	public int getGrossmonth() {
+		return grossmonth;
+	}
+
+	public void setGrossmonth(int grossmonth) {
+		this.grossmonth = grossmonth;
+	}
+
+	public String getOrdermonth() {
+		return ordermonth;
+	}
+
+	public void setOrdermonth(String ordermonth) {
+		this.ordermonth = ordermonth;
 	}
 
 	public int getGross() {

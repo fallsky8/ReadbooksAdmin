@@ -30,4 +30,25 @@ public class OrderServiceImpl implements OrderService {
 		grossprofit = orderdao.grossprofit(order);
 		return grossprofit;
 	}
+
+	@Override
+	public List<OrderVO> grossprofitmonth(OrderVO order) {
+		List<OrderVO> grossprofitmonth = null;
+		grossprofitmonth = orderdao.grossprofitmonth(order);
+		return grossprofitmonth;
+	}
+
+	@Override
+	public List<OrderVO> grossprofitkorea(OrderVO order) {
+		List<OrderVO> grossprofitkorea = null;
+		grossprofitkorea = orderdao.grossprofitkorea(order);
+		return grossprofitkorea;
+	}
+
+	@Override
+	public List<OrderVO> grossprofitforeign(OrderVO order) {
+		List<OrderVO> grossprofitforeign = null;
+		grossprofitforeign = orderdao.grossprofitforeign(order);
+		return grossprofitforeign;
+	}
 }

@@ -33,8 +33,17 @@ public class OrderController {
 	@RequestMapping(value = "/mail", method = RequestMethod.GET)
 	public String mailForm(@ModelAttribute OrderVO order, Model model) {
 		List<OrderVO> grossprofit = new ArrayList<OrderVO>();
+		List<OrderVO> grossprofitmonth = new ArrayList<OrderVO>();
+		List<OrderVO> grossprofitkorea = new ArrayList<OrderVO>();
+		List<OrderVO> grossprofitforeign = new ArrayList<OrderVO>();
 		grossprofit = orderService.grossprofit(order);
+		grossprofitmonth = orderService.grossprofitmonth(order);
+		grossprofitkorea = orderService.grossprofitkorea(order);
+		grossprofitforeign = orderService.grossprofitforeign(order);
 		model.addAttribute("grossprofit", grossprofit);
+		model.addAttribute("grossprofitmonth", grossprofitmonth);
+		model.addAttribute("grossprofitkorea", grossprofitkorea);
+		model.addAttribute("grossprofitforeign", grossprofitforeign);
 		return "/mail/mail";
 	}
 

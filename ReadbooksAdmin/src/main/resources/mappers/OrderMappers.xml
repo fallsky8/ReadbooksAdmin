@@ -9,7 +9,6 @@
 		ORDER_NUMBER,
 		USER_ID,
 		BOOK_NUMBER,
-		ORDER_PASSWORD,
 		ORDER_ORDERER,
 		ORDER_RECIPIENT,TO_CHAR(ORDER_DATE,'YYYY-MM-DD') AS
 		ORDER_DATE,
@@ -17,9 +16,9 @@
 		ORDER_RECEIPTADDRESS,
 		ORDER_REQUIREMENT,
 		ORDER_STATUS,
-		ORDER_WAY,
 		ORDER_QUANTITY,
-		ORDER_ORDERNUMBER
+		ORDER_ORDERNUMBER,
+		ORDER_RECIPIENTPHONENUMBER
 		from tbl_order
 	</select>
 	<select id="grossprofit" parameterType="order" resultType="order">
@@ -28,9 +27,42 @@
 		where to_char(order_date,'yyyy') >
 		to_char(sysdate,'yyyy')-4 and
 		order_status='입금완료' group by
-		to_char(order_date,'yyyy')
+		to_char(order_date,'yyyy') order by orderyear
 	</select>
-
-
+	<select id="grossprofitmonth" parameterType="order" resultType="order">
+		select sum(order_orderprice)as grossmonth, to_char(order_date,'mm')as
+		ordermonth from tbl_order where
+		to_char(order_date,'yyyy')=to_char(sysdate,'yyyy') and
+		order_status='입금완료' group by
+		to_char(order_date,'mm') order by
+		ordermonth
+	</select>
+	<select id="grossprofitforeign" parameterType="order"
+		resultType="order">
+		select sum(o.order_orderprice)as
+		grossforeign,to_char(o.order_date,'yyyy')as
+		orderyearforeign,
+		b.book_country from
+		tbl_order o,tbl_book b
+		where
+		to_char(o.order_date,'yyyy') >
+		to_char(sysdate,'yyyy')-4 and
+		o.order_status='입금완료' and o.book_number =
+		b.book_number and
+		b.book_country = '해외' group by
+		to_char(o.order_date,'yyyy'),b.book_country order by orderyearforeign
+	</select>
+	<select id="grossprofitkorea" parameterType="order" resultType="order">
+		select sum(o.order_orderprice)as
+		grosskorea,to_char(o.order_date,'yyyy')as
+		orderyearkorea,
+		b.book_country from tbl_order o,tbl_book b
+		where
+		to_char(o.order_date,'yyyy') >
+		to_char(sysdate,'yyyy')-4 and
+		o.order_status='입금완료' and o.book_number = b.book_number and
+		b.book_country = '국내' group by
+		to_char(o.order_date,'yyyy'),b.book_country order by orderyearkorea
+	</select>
 
 </mapper>

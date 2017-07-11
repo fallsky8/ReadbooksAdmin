@@ -92,7 +92,6 @@
 					</tbody>
 				</table>
 			</div>
-			<input type="button" id="btninsert" name="btninsert" value="등록">
 		</div>
 	</div>
 </body>
