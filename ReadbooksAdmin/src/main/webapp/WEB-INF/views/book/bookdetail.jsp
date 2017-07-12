@@ -138,31 +138,33 @@ td select {
 								<td id=""><input type="image"
 									src="resources/image/${bookdetail.book_image }"> <input
 									type="file" id="image_file" name="image_file"
-									value="${bookdetail.image_file}">
-								</td><td> 변경할 이미지 <div id="fileDisplayArea"></div>
-									</td>
+									value="${bookdetail.image_file}"></td>
+								<td>변경할 이미지
+									<div id="fileDisplayArea"></div>
+								</td>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<th>번호</th>
-								<td colspan="2"><input type="text" id="book_number" name="book_number"
-									value="${bookdetail.book_number }"></td>
+								<td colspan="2"><input type="text" id="book_number"
+									name="book_number" value="${bookdetail.book_number }"></td>
 							</tr>
 							<tr>
 								<th>제목</th>
-								<td colspan="2"> <input type="text" id="book_name" name="book_name"
-									value="${bookdetail.book_name }"></td>
+								<td colspan="2"><input type="text" id="book_name"
+									name="book_name" value="${bookdetail.book_name }"></td>
 							</tr>
 							<tr>
 								<th>수량</th>
-								<td colspan="2"><input type="text" type="text" id="book_quantity"
-									name="book_quantity" value="${bookdetail.book_quantity }"></td>
+								<td colspan="2"><input type="text" type="text"
+									id="book_quantity" name="book_quantity"
+									value="${bookdetail.book_quantity }"></td>
 							</tr>
 							<tr>
 								<td>가격</td>
-								<td colspan="2"><input type="text" id="book_price" name="book_price"
-									value="${bookdetail.book_price }"></td>
+								<td colspan="2"><input type="text" id="book_price"
+									name="book_price" value="${bookdetail.book_price }"></td>
 							</tr>
 							<tr>
 								<td>국내/해외</td>
@@ -171,13 +173,13 @@ td select {
 							</tr>
 							<tr>
 								<th>장편/단편</th>
-								<td colspan="2"><input type="text" id="book_story" name="book_story"
-									value="${bookdetail.book_story }"></td>
+								<td colspan="2"><input type="text" id="book_story"
+									name="book_story" value="${bookdetail.book_story }"></td>
 							</tr>
 							<tr>
 								<th>저자</th>
-								<td colspan="2"><input type="text" id="book_writer" name="book_writer"
-									value="${bookdetail.book_writer }"></td>
+								<td colspan="2"><input type="text" id="book_writer"
+									name="book_writer" value="${bookdetail.book_writer }"></td>
 							</tr>
 							<tr>
 								<th>출판사</th>
@@ -186,11 +188,13 @@ td select {
 							</tr>
 							<tr>
 								<th>책소개</th>
-								<td colspan="2"><textarea id="book_bookinfo" name="book_bookinfo">${bookdetail.book_bookinfo }</textarea></td>
+								<td colspan="2"><textarea id="book_bookinfo"
+										name="book_bookinfo">${bookdetail.book_bookinfo }</textarea></td>
 							</tr>
 							<tr>
 								<th>저자소개</th>
-								<td colspan="2"><textarea id="book_writerinfo" name="book_writerinfo">${bookdetail.book_writerinfo }</textarea></td>
+								<td colspan="2"><textarea id="book_writerinfo"
+										name="book_writerinfo">${bookdetail.book_writerinfo }</textarea></td>
 							</tr>
 							<tr>
 								<th>출판사리뷰</th>
@@ -199,12 +203,14 @@ td select {
 							</tr>
 							<tr>
 								<th>할인율</th>
-								<td colspan="2"><input id="book_discount" name="book_discount"
-									type="text" value="${bookdetail.book_discount }">%</td>
+								<td colspan="2"><input id="book_discount"
+									name="book_discount" type="text"
+									value="${bookdetail.book_discount }">%</td>
 							</tr>
 							<tr>
 								<th>상태</th>
-								<td colspan="2"><select id="book_status" name="book_status" size="1">
+								<td colspan="2"><select id="book_status" name="book_status"
+									size="1">
 
 										<option value="${bookdetail.book_status}">저장된 값 :
 											${bookdetail.book_status}</option>
@@ -217,7 +223,6 @@ td select {
 								<td colspan="2"><input type="text" id="book_opening"
 									name="book_opening" value="${bookdetail.book_opening }"></td>
 							</tr>
-
 						</tbody>
 					</table>
 

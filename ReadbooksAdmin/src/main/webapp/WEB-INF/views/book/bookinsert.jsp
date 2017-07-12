@@ -8,16 +8,29 @@
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	$(function() {
+		function replaceBR() {
+
+			document.bookinsertform.book_bookinfo.value = document.bookinsertform.book_bookinfo.value
+					.replace(/\n/gi, '<br />');
+			document.bookinsertform.book_writerinfo.value = document.bookinsertform.book_writerinfo.value
+					.replace(/\n/gi, '<br />');
+			document.bookinsertform.book_publisherreview.value = document.bookinsertform.book_publisherreview.value
+					.replace(/\n/gi, '<br />');
+
+			return true;
+
+		}
 
 		var admin_id = "${sessionScope.admin_id}";
 
 		$("#btnbookinsert").click(function() {
 			if (admin_id == "admin") {
-			$("#bookinsertform").attr({
-				"method" : "POST",
-				"action" : "/bookinsert.do"
-			});
-			$("#bookinsertform").submit();
+				$("#bookinsertform").attr({
+					"method" : "POST",
+					"action" : "/bookinsert.do"
+				});
+				replaceBR();
+				$("#bookinsertform").submit();
 			} else {
 				alert("권한이 없습니다 로그인 해주세요")
 			}
@@ -30,7 +43,7 @@
 </script>
 <style type="text/css">
 #bookform {
-		margin: 100px 100px 100px 150px;
+	margin: 100px 100px 100px 150px;
 }
 
 th {
