@@ -81,9 +81,7 @@ td textarea {
 				</tr>
 
 				<tr>
-					<td>상품수량</td>
-					<td><input type="text" id="book_quantity" name="book_quantity"></td>
-					<td>상품 가격</td>
+					<th>상품 가격</th>
 					<td><input type="text" id="book_price" name="book_price"></td>
 				</tr>
 

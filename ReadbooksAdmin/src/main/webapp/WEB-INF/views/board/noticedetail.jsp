@@ -60,6 +60,11 @@ td textarea {
 	height: 150px;
 }
 
+td input {
+	color: #25b7c4;
+	width: 95%;
+}
+
 td select {
 	color: #25b7c4;
 	width: 200px;

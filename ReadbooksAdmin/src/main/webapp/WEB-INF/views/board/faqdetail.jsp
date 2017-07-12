@@ -10,10 +10,7 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
-=======
 	
->>>>>>> dc23175f359e6982e593324a9d627034fedb9bc4
 </script>
 <script type="text/javascript">
 	$(function() {
@@ -121,10 +118,7 @@ td select {
 
 						</tbody>
 					</table>
-<<<<<<< HEAD
 
-=======
->>>>>>> dc23175f359e6982e593324a9d627034fedb9bc4
 					<input type="button" id="btnedit" name="btnedit" value="수정">
 					<input type="button" id="btneditcancle" name="btneditcancle"
 						value="취소">

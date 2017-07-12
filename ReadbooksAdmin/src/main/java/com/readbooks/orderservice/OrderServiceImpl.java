@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.readbooks.boardvo.NoticeVO;
 import com.readbooks.orderdao.OrderDAO;
 import com.readbooks.ordervo.OrderVO;
 
@@ -50,5 +51,19 @@ public class OrderServiceImpl implements OrderService {
 		List<OrderVO> grossprofitforeign = null;
 		grossprofitforeign = orderdao.grossprofitforeign(order);
 		return grossprofitforeign;
+	}
+
+	@Override
+	public int OrderUpdate(OrderVO order) {
+		int result = 0;
+		result = orderdao.OrderUpdate(order);
+		return result;
+	}
+
+	@Override
+	public OrderVO OrderDetailSelect(OrderVO order) {
+		OrderVO orderdetail= new OrderVO();
+		orderdetail = orderdao.OrderDetailSelect(order);
+		return orderdetail;
 	}
 }

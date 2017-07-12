@@ -5,7 +5,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class BookVO {
 	private int book_number;
 	private String book_name;
-	private int book_quantity;
 	private int book_price;
 	private String book_country;
 	private String book_story;
@@ -15,7 +14,6 @@ public class BookVO {
 	private String book_writerinfo;
 	private String book_publisherreview;
 	private String book_image;
-	private int book_discount;
 	private String book_registerdate;
 	private String book_status;
 	private String book_opening;
@@ -39,14 +37,6 @@ public class BookVO {
 
 	public void setBook_name(String book_name) {
 		this.book_name = book_name;
-	}
-
-	public int getBook_quantity() {
-		return book_quantity;
-	}
-
-	public void setBook_quantity(int book_quantity) {
-		this.book_quantity = book_quantity;
 	}
 
 	public int getBook_price() {
@@ -119,14 +109,6 @@ public class BookVO {
 
 	public void setBook_image(String book_image) {
 		this.book_image = book_image;
-	}
-
-	public int getBook_discount() {
-		return book_discount;
-	}
-
-	public void setBook_discount(int book_discount) {
-		this.book_discount = book_discount;
 	}
 
 	public String getBook_registerdate() {

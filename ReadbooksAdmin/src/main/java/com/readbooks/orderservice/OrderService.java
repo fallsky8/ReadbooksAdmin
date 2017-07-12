@@ -16,4 +16,8 @@ public interface OrderService {
 
 	public List<OrderVO> grossprofitforeign(OrderVO order);
 
+	public int OrderUpdate(OrderVO order);
+
+	public OrderVO OrderDetailSelect(OrderVO order);
+
 }

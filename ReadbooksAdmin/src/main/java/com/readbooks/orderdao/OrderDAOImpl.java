@@ -40,4 +40,14 @@ public class OrderDAOImpl implements OrderDAO {
 	public List<OrderVO> grossprofitforeign(OrderVO order) {
 		return session.selectList("grossprofitforeign", order);
 	}
+
+	@Override
+	public int OrderUpdate(OrderVO order) {
+		return session.update("orderupdate", order);
+	}
+
+	@Override
+	public OrderVO OrderDetailSelect(OrderVO order) {
+		return session.selectOne("orderdetail", order);
+	}
 }

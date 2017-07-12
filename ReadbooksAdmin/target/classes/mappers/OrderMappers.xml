@@ -12,7 +12,8 @@
 		ORDER_ORDERER,
 		ORDER_RECIPIENT,TO_CHAR(ORDER_DATE,'YYYY-MM-DD') AS
 		ORDER_DATE,
-		ORDER_PAYMENTDATE,
+		TO_CHAR(ORDER_PAYMENTDATE,'YYYY-MM-DD') AS ORDER_PAYMENTDATE,
+		ORDER_ORDERNUMBER,
 		ORDER_RECEIPTADDRESS,
 		ORDER_REQUIREMENT,
 		ORDER_STATUS,
@@ -21,19 +22,41 @@
 		ORDER_RECIPIENTPHONENUMBER
 		from tbl_order
 	</select>
+	<select id="orderdetail" parameterType="order" resultType="order">
+		select
+		ORDER_NUMBER,
+		USER_ID,
+		BOOK_NUMBER,
+		ORDER_ORDERER,
+		ORDER_RECIPIENT,TO_CHAR(ORDER_DATE,'YYYY-MM-DD') AS
+		ORDER_DATE,
+		TO_CHAR(ORDER_PAYMENTDATE,'YYYY-MM-DD') AS ORDER_PAYMENTDATE,
+		ORDER_ORDERNUMBER,
+		ORDER_RECEIPTADDRESS,
+		ORDER_REQUIREMENT,
+		ORDER_STATUS,
+		ORDER_QUANTITY,
+		ORDER_ORDERNUMBER,
+		ORDER_RECIPIENTPHONENUMBER
+		from tbl_order
+		where
+		ORDER_NUMBER =#{order_number}
+	</select>
+
+
 	<select id="grossprofit" parameterType="order" resultType="order">
 		select sum(order_orderprice)as gross,to_char(order_date,'yyyy')as
 		orderyear from tbl_order
 		where to_char(order_date,'yyyy') >
 		to_char(sysdate,'yyyy')-4 and
-		order_status='입금완료' group by
+		order_status='배송완료' group by
 		to_char(order_date,'yyyy') order by orderyear
 	</select>
 	<select id="grossprofitmonth" parameterType="order" resultType="order">
 		select sum(order_orderprice)as grossmonth, to_char(order_date,'mm')as
 		ordermonth from tbl_order where
 		to_char(order_date,'yyyy')=to_char(sysdate,'yyyy') and
-		order_status='입금완료' group by
+		order_status='배송완료' group by
 		to_char(order_date,'mm') order by
 		ordermonth
 	</select>
@@ -47,7 +70,7 @@
 		where
 		to_char(o.order_date,'yyyy') >
 		to_char(sysdate,'yyyy')-4 and
-		o.order_status='입금완료' and o.book_number =
+		o.order_status='배송완료' and o.book_number =
 		b.book_number and
 		b.book_country = '해외' group by
 		to_char(o.order_date,'yyyy'),b.book_country order by orderyearforeign
@@ -60,7 +83,7 @@
 		where
 		to_char(o.order_date,'yyyy') >
 		to_char(sysdate,'yyyy')-4 and
-		o.order_status='입금완료' and o.book_number = b.book_number and
+		o.order_status='배송완료' and o.book_number = b.book_number and
 		b.book_country = '국내' group by
 		to_char(o.order_date,'yyyy'),b.book_country order by orderyearkorea
 	</select>

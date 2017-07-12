@@ -30,7 +30,7 @@
 					<span class='glyphicon glyphicon-book collapsed-element'></span> <span
 					class='expanded-element'>상품 조회</span>
 			</a></li>
-			<li><a class='expandable' href='/orderlist.do' title='주문 조회ㄴ'>
+			<li><a class='expandable' href='/orderlist.do' title='주문 조회'>
 					<span class='glyphicon glyphicon-shopping-cart collapsed-element'></span>
 					<span class='expanded-element'>주문 조회</span>
 			</a></li>
@@ -55,8 +55,8 @@
 					<span class='expanded-element'>약관동의</span>
 			</a></li>
 			<li><a class='expandable' href='/mail.do' title='메일 작성'> <span
-					class='glyphicon glyphicon-envelope collapsed-element'></span> <span
-					class='expanded-element'>메일 작성</span>
+					class='glyphicon glyphicon-stats collapsed-element'></span> <span
+					class='expanded-element'>통계</span>
 			</a></li>
 		</ul>
 		<a href='/login.do' id='logout-icon' title='Logout'> <span

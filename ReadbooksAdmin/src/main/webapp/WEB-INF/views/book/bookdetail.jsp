@@ -155,12 +155,7 @@ td select {
 								<td colspan="2"><input type="text" id="book_name"
 									name="book_name" value="${bookdetail.book_name }"></td>
 							</tr>
-							<tr>
-								<th>수량</th>
-								<td colspan="2"><input type="text" type="text"
-									id="book_quantity" name="book_quantity"
-									value="${bookdetail.book_quantity }"></td>
-							</tr>
+							
 							<tr>
 								<td>가격</td>
 								<td colspan="2"><input type="text" id="book_price"
@@ -201,12 +196,7 @@ td select {
 								<td colspan="2"><textarea id="book_publisherreview"
 										name="book_publisherreview">${bookdetail.book_publisherreview }</textarea></td>
 							</tr>
-							<tr>
-								<th>할인율</th>
-								<td colspan="2"><input id="book_discount"
-									name="book_discount" type="text"
-									value="${bookdetail.book_discount }">%</td>
-							</tr>
+							
 							<tr>
 								<th>상태</th>
 								<td colspan="2"><select id="book_status" name="book_status"

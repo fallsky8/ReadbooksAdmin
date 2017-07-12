@@ -84,7 +84,6 @@
 						<tr>
 							<th>번호</th>
 							<th>제목</th>
-							<th>수량</th>
 							<th>가격</th>
 							<th>국내/해외</th>
 							<th>장편/단편</th>
@@ -110,7 +109,6 @@
 							<tr>
 								<td>${booklist.book_number }</td>
 								<td><span class="goDetail">${booklist.book_name }</span></td>
-								<td>${booklist.book_quantity }EA</td>
 								<td>${booklist.book_price }원</td>
 								<td>${booklist.book_country }</td>
 								<td>${booklist.book_story }</td>
