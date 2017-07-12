@@ -50,7 +50,7 @@ public class OrderController {
 	}
 
 	
-	@RequestMapping(value = "/mail", method = RequestMethod.GET)
+	@RequestMapping(value = "/static", method = RequestMethod.GET)
 	public String mailForm(@ModelAttribute OrderVO order, Model model) {
 		List<OrderVO> grossprofit = new ArrayList<OrderVO>();
 		List<OrderVO> grossprofitmonth = new ArrayList<OrderVO>();
@@ -64,7 +64,7 @@ public class OrderController {
 		model.addAttribute("grossprofitmonth", grossprofitmonth);
 		model.addAttribute("grossprofitkorea", grossprofitkorea);
 		model.addAttribute("grossprofitforeign", grossprofitforeign);
-		return "/mail/mail";
+		return "/static/static";
 	}
 
 }

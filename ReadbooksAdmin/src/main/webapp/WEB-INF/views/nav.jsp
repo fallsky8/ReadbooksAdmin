@@ -54,7 +54,7 @@
 					<span class='glyphicon glyphicon glyphicon-list-alt collapsed-element'></span>
 					<span class='expanded-element'>약관동의</span>
 			</a></li>
-			<li><a class='expandable' href='/mail.do' title='메일 작성'> <span
+			<li><a class='expandable' href='/mail.do' title='통계'> <span
 					class='glyphicon glyphicon-stats collapsed-element'></span> <span
 					class='expanded-element'>통계</span>
 			</a></li>
