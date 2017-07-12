@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -60,3 +61,66 @@
 
 	</update>
 </mapper>
+=======
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.readbooks.bookdao.BookDAO">
+	<insert id="bookinsert" parameterType="book">
+		insert into
+		tbl_book(BOOK_NUMBER,BOOK_NAME,BOOK_PRICE,BOOK_COUNTRY,BOOK_STORY,BOOK_WRITER,BOOK_PUBLISHER,BOOK_BOOKINFO,BOOK_WRITERINFO,BOOK_PUBLISHERREVIEW,BOOK_IMAGE,BOOK_DISCOUNT,BOOK_REGISTERDATE,BOOK_STATUS,BOOK_OPENING)
+		values(#{book_number},#{book_name},#{book_price},#{book_country},#{book_story},#{book_writer},#{book_publisher},#{book_bookinfo},#{book_writerinfo},#{book_publisherreview},#{book_image},10,sysdate,'판매중',#{book_opening})
+	</insert>
+
+	<select id="booklist" parameterType="book" resultType="book">
+		select
+		BOOK_NUMBER,
+		BOOK_NAME,
+		BOOK_PRICE,
+		BOOK_COUNTRY,
+		BOOK_STORY,
+		BOOK_WRITER,
+		BOOK_PUBLISHER,
+		BOOK_BOOKINFO,
+		BOOK_WRITERINFO,
+		BOOK_PUBLISHERREVIEW,
+		BOOK_IMAGE,
+		TO_CHAR(BOOK_REGISTERDATE,'YYYY-MM-DD') AS
+		BOOK_REGISTERDATE,
+		BOOK_STATUS,
+		TO_CHAR(BOOK_OPENING,'YYYY-MM-DD') AS
+		BOOK_OPENING
+		from
+		tbl_book
+	</select>
+	<select id="bookdetail" parameterType="book" resultType="book">
+		select
+		BOOK_NUMBER,
+		BOOK_NAME,
+		BOOK_PRICE,
+		BOOK_COUNTRY,
+		BOOK_STORY,
+		BOOK_WRITER,
+		BOOK_PUBLISHER,
+		BOOK_BOOKINFO,
+		BOOK_WRITERINFO,
+		BOOK_PUBLISHERREVIEW,
+		BOOK_IMAGE,
+		TO_CHAR(BOOK_REGISTERDATE,'YYYY-MM-DD') AS
+		BOOK_REGISTERDATE,
+		BOOK_STATUS,
+		TO_CHAR(BOOK_OPENING,'YYYY-MM-DD') AS
+		BOOK_OPENING
+		from
+		tbl_book where book_number = #{book_number}
+	</select>
+	<update id="bookupdate" parameterType="book">
+		update
+		tbl_book
+		set
+		BOOK_NAME=#{book_name},BOOK_PRICE=#{book_price},BOOK_COUNTRY=#{book_country},BOOK_STORY=#{book_story},BOOK_WRITER=#{book_writer},BOOK_PUBLISHER=#{book_publisher},BOOK_BOOKINFO=#{book_bookinfo},BOOK_WRITERINFO=#{book_writerinfo},BOOK_PUBLISHERREVIEW=#{book_publisherreview},BOOK_IMAGE=#{book_image},BOOK_DISCOUNT=#{book_discount},BOOK_STATUS=#{book_status},BOOK_OPENING=#{book_opening}
+		where BOOK_NUMBER=#{book_number}
+	</update>
+</mapper>
+>>>>>>> dc23175f359e6982e593324a9d627034fedb9bc4

@@ -24,7 +24,7 @@
 					"action" : "/agreementupdate.do"
 				});
 				$("#editagreementform").submit();
-alert("수정했습니다.")
+				alert("수정했습니다.")
 			} else {
 				alert("권한이 없습니다 로그인 해주세요")
 			}

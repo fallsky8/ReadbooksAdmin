@@ -8,18 +8,18 @@
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	$(function() {
-		var admin_id="${sessionScope.admin_id}";
-			
+		var admin_id = "${sessionScope.admin_id}";
+
 		$("#btnfaqinsert").click(function() {
-		if(admin_id=="admin"){
-			$("#faqinsertform").attr({
-				"method" : "POST",
-				"action" : "/faqinsert.do"
-			});
-			$("#faqinsertform").submit();
-		}else {
-			alert("권한이 없습니다 로그인 해주세요")
-		}
+			if (admin_id == "admin") {
+				$("#faqinsertform").attr({
+					"method" : "POST",
+					"action" : "/faqinsert.do"
+				});
+				$("#faqinsertform").submit();
+			} else {
+				alert("권한이 없습니다 로그인 해주세요")
+			}
 		});
 
 		$("#btnfaqcancle").click(function() {
@@ -37,7 +37,7 @@ th {
 	width: 100px;
 }
 
-td input,td select {
+td input, td select {
 	width: 60%;
 	color: #25b7c4;
 }
@@ -47,10 +47,10 @@ td textarea {
 	width: 95%;
 	height: 150px;
 }
-#faqform {
-		margin: 100px 100px 100px 150px;
-}
 
+#faqform {
+	margin: 100px 100px 100px 150px;
+}
 </style>
 </head>
 <body>
@@ -77,20 +77,20 @@ td textarea {
 
 				<tr>
 					<th>Question</th>
-					<td colspan="3"><textarea id="faqboard_question" name="faqboard_question"></textarea></td>
+					<td colspan="3"><textarea id="faqboard_question"
+							name="faqboard_question"></textarea></td>
 				</tr>
 				<tr>
 					<th>Answer</th>
-					<td colspan="3"><textarea id="faqboard_answer" name="faqboard_answer"></textarea></td>
+					<td colspan="3"><textarea id="faqboard_answer"
+							name="faqboard_answer"></textarea></td>
 				</tr>
 
 				<tr>
-				<th colspan="2"></th>
-					<td><input type="button" id="btnfaqinsert"
-						value="등록하기"></td>
+					<th colspan="2"></th>
+					<td><input type="button" id="btnfaqinsert" value="등록하기"></td>
 
-					<td><input type="button" id="btnfaqcancle"
-						value="취소"></td>
+					<td><input type="button" id="btnfaqcancle" value="취소"></td>
 				</tr>
 			</table>
 		</form>

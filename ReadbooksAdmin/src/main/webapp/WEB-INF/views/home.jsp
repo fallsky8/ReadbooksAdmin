@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +13,9 @@
 
 <body>
 	<div id=wrap>
-	<jsp:include page="nav.jsp"></jsp:include>
+		<jsp:include page="nav.jsp"></jsp:include>
 		<div>
-		<jsp:include page="admin/login.jsp"></jsp:include>
-		
+			<jsp:include page="admin/login.jsp"></jsp:include>
 		</div>
 	</div>
 </body>
